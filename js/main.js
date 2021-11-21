@@ -9,13 +9,17 @@ const app = new Vue({
         items: [],
         sieve: [],
         imgCatalog: 'img/zz.jpg',
-        userSearch: ''
+        userSearch: '',
+        basketUrl: '/getBasket.json',
+        basketItem: [],
+        copyRight: "Copyright 	© " + new Date().getFullYear() + ". All rights reserved.",
+        error: false
     },
-    
+
     methods: {
-        separation(value) {
-            let findIt = new RegExp(value, 'i');
-            this.sieve = this.items.separ(prod => findIt.test(prod.product_name));
+        separation() {
+            let findIt = new RegExp(this.userSearch, 'i');
+            this.sieve = this.items.filter(prod => findIt.test(prod.product_name));
         },
         _getJson(url) {
             return fetch(url)
@@ -24,27 +28,57 @@ const app = new Vue({
                     console.log(mistacke);
                 })
         },
-        addProduct(product) {
-            console.log(product.id_product);
-        }
+        addProduct(thing) {
+            this._getJson(`${API}/addToBasket.json`)
+                .then(outcome => {
+                    if (outcome.result === 1) {
+                        let find = this.basketItem.find(product => product.id_product === thing.id_product);
+                        if (find) {
+                            find.quantity++;
+                        } else {
+                            let newThing = Object.assign({ quantity: 1 }, thing);
+                            this.basketItem.push(newThing)
+                        }
+                    }
+                })
+        },
+        delItem(thing) {
+            this._getJson(`${API}/addToBasket.json`)
+                .then(outcome => {
+                    if (outcome.result === 1) {
+                        if (thing.quantity > 1) {
+                            thing.quantity--;
+                        } else {
+                            this.basketItem.splice(this.basketItem.indexOf(thing), 1);
+                        }
+                    }
+                })
+        },
     },
-    created() {
+    mounted() {
         this._getJson(`${API + this.catalogUrl}`)
             .then(outcome => {
                 for (let el of outcome) {
                     this.items.push(el);
+                    this.sieve.push(el);
                 }
-            })
-    },
-    mounted() {
+            });
         this._getJson(`getProducts.json`)
             .then(outcome => {
                 for (let el of outcome) {
                     this.items.push(el);
+                    this.sieve.push(el);
                 }
-            })
-    }
-})
+            });
+        // this._getJson(`${API + this.basketUrl}`)
+        //     .then(outcome => {
+        //         for (let el of outcome.contents) {
+        //             this.basketItem.push(el);
+        //         }
+        //     });
+    },
+});
+////////////////////////////////////////////////////////////////////////////
 // // ПРОДУКТЫ
 // class Products {
 //     constructor(url, container, list = list2) {

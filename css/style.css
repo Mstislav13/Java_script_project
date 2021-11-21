@@ -43,8 +43,11 @@ html, body {
 }
 
 .li_menu {
-    margin-right: 75px;
     padding-top: 5px;
+}
+
+.main_li {
+    padding-right: 10px;
 }
 
 .btn-cart {
@@ -68,6 +71,8 @@ html, body {
 
 .btn-search {
     font-size: 15px;
+    border-radius: 4px;
+    padding: 2px;
 }
 
 .cards {
@@ -82,21 +87,24 @@ html, body {
 
 .product-item {
     border: 5px solid #8f9b4c;
-    border-radius: 2px;
+    border-radius: 10px;
     padding: 5px;
 }
 .basket-product{
     border: 5px solid #8f9b4c;
-    border-radius: 2px;
+    border-radius: 6px;
     padding: 5px;    
     justify-content: center;
 }
 
 .img-product-item {
     width: 250px;
+    border-radius: 6px;
 }
 .basket-img-product {
-    width: 50px;
+    width: 80px;
+    border-radius: 6px;
+    margin-left: 27px;
 }
 
 .title-product-item {
@@ -113,14 +121,14 @@ html, body {
     background-color: #cbe1cc;
     font-size: 18px;
     padding: 3px 95px;
-    border-radius: 3px;
+    border-radius: 7px;
     text-align: center;
 }
 
 .footer {
     flex: 0 0 auto;
 	height: 55px;	
-	background-color: #f7f7f7;
+	background-color: #d4c39e;
 	padding-left: 400px;
 	padding-right: 98px;	
 	clear: both;
@@ -128,6 +136,7 @@ html, body {
 
 .delete {
     padding: 1px 39px;
+    border-radius: 5px;
 }
 
 .invisible{
@@ -143,4 +152,21 @@ html, body {
 
 .search-field {
     font-size: 20px;
+    border-radius: 5px;
+}
+
+.copyr {
+    font-size: 16px;
+    padding-top: 20px;
+    padding-left: 400px;
+}
+
+.empty-bask {
+    right: 335px;
+    position: fixed;
+    background-color: #cbe1cc;
+    top: 36px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 6px;
 }

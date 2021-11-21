@@ -17,44 +17,43 @@
                     <div class="tittle">
                         <h1 class="top_title">{{ title }}</h1>
 
-                        <form action="#" class="search-form" @submit.prevent="separation">
-                            <input type="text" class="search-field" v-model="userSearch">
-                            <button class="btn-search" type="submit">поиск</button>
-                        </form>
+                        <search></search>                        
 
                     </div>
                     <div>
                         <nav class="top_d">
                             <ul class="main-menu">
-                                <li class="li_menu"><a href="#">Главная</a></li>
-                                <li class="li_menu"><a href="#">Контакты</a></li>
+                                <li class="li_menu main_li"><a href="#">Главная</a></li>
+                                <li class="li_menu cont_li"><a href="#">Контакты</a></li>
                             </ul>
                         </nav>
                     </div>
-                    
+
                     <div>
                         <button class="btn-cart" type="button" @click="show=!show">Корзина</button>
-                        <div class="basket" v-show="show"></div>
+
+                        <p v-if="basketItem.length == 0" class="empty-bask">Корзина пуста</p>
+                        <p v-else="basketItem.length" class="empty-bask">В корзине есть товары</p>
+
+                        <basket :basket-item="basketItem" :img="imgCatalog" :visibility="show"></basket>
                     </div>
-                    
+
                 </div>
             </header>
-
             <main class="cards">
-                <div class="products">
-                    <div class="product-item" v-for="product of items">
-                        <img class="img-product-item" :src="imgCatalog" alt="Картинка товара">
-                        <h3 class="title-product-item">{{ product.product_name }}</h3>
-                        <p class="price-product-item">{{ product.price }}</p>
-                        <button class="buy-btn" @click="addProduct(product)">Купить</button>
-                    </div>
-                </div>
+                <products :products="sieve" :img="imgCatalog" @add-product="addProduct"></products>
             </main>
-
         </div>
-        <div class="footer"></div>
+        <div class="footer">
+            <div>
+                <p class="copyr">{{ copyRight }}</p>
+            </div>
+        </div>
     </div>
     <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    <script src="js/productComponent.js"></script>
+    <script src="js/basketComponent.js"></script>
+    <script src="js/searchComponent.js"></script>
     <script src="js/main.js"></script>
 </body>
 
