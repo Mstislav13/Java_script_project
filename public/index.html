@@ -16,7 +16,7 @@
                 <div class="top">
                     <div class="tittle">
                         <h1 class="top_title">{{ title }}</h1>
-
+                        
                         <search></search>                        
 
                     </div>
@@ -30,18 +30,14 @@
                     </div>
 
                     <div>
-                        <button class="btn-cart" type="button" @click="show=!show">Корзина</button>
-
-                        <p v-if="basketItem.length == 0" class="empty-bask">Корзина пуста</p>
-                        <p v-else="basketItem.length" class="empty-bask">В корзине есть товары</p>
-
-                        <basket :basket-item="basketItem" :img="imgCatalog" :visibility="show"></basket>
-                    </div>
+                        <cart ref="cart"></cart>                     
+                    </div>                    
 
                 </div>
             </header>
             <main class="cards">
-                <products :products="sieve" :img="imgCatalog" @add-product="addProduct"></products>
+                <error ref="error"></error>              
+                <products ref="products"></products>                
             </main>
         </div>
         <div class="footer">
@@ -49,11 +45,12 @@
                 <p class="copyr">{{ copyRight }}</p>
             </div>
         </div>
-    </div>
-    <script src="https://cdn.jsdelivr.net/npm/vue@2.6.14"></script>
+    </div>       
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
     <script src="js/productComponent.js"></script>
     <script src="js/basketComponent.js"></script>
     <script src="js/searchComponent.js"></script>
+    <script src="js/errorComponent.js"></script>
     <script src="js/main.js"></script>
 </body>
 

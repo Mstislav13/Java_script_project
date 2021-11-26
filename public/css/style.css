@@ -61,7 +61,7 @@ html, body {
     text-align: center;
 }
 
-.basket {    
+.cart {    
     display: flex;
     right: 35px;
     position: absolute;
@@ -90,29 +90,29 @@ html, body {
     border-radius: 10px;
     padding: 5px;
 }
-.basket-product{
+.cart-item{
     border: 5px solid #8f9b4c;
     border-radius: 6px;
     padding: 5px;    
     justify-content: center;
 }
 
-.img-product-item {
+.img-prod-item {
     width: 250px;
     border-radius: 6px;
 }
-.basket-img-product {
+.cart-img-product {
     width: 80px;
     border-radius: 6px;
     margin-left: 27px;
 }
 
-.title-product-item {
+.title-prod-item {
     font-size: 23px;
     text-align: center;
 }
 
-.price-product-item {
+.price-prod-item {
     font-size: 20px;
     text-align: center;
 }
@@ -169,4 +169,8 @@ html, body {
     font-size: 20px;
     padding: 5px;
     border-radius: 6px;
+}
+
+.err {
+    color: red;
 }
