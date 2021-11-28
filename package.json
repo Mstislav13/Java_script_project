@@ -1,0 +1,23 @@
+{
+  "name": "java_script_project",
+  "version": "1.0.0",
+  "description": "1. Привязать добавление товара в корзину к реальному API.",
+  "main": "index.js",
+  "scripts": {
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/Mstislav13/Java_script_project.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/Mstislav13/Java_script_project/issues"
+  },
+  "homepage": "https://github.com/Mstislav13/Java_script_project#readme",
+  "dependencies": {
+    "express": "^4.17.1"
+  }
+}
