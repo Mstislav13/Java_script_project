@@ -57,8 +57,8 @@ Vue.component('cart', {
             <div>
                 <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
                 <p v-if="cartItems.length == 0" class="empty-bask">Корзина пуста</p>
-                <p v-else="cartItems.length" class="empty-bask">В корзине есть товары</p>  
-                <div class="cart" v-show="showCart">                                      
+                <p v-else="cartItems.length" class="empty-bask">В корзине есть товары</p>
+                <div class="cart" v-show="showCart"                                     
                     <cart-item v-for="item of cartItems" 
                         :key="item.id_product"
                         :img="item.imgCart"
