@@ -17,7 +17,7 @@ Vue.component('cart', {
         addProduct(product) {
             let find = this.cartItems.find(el => el.id_product === product.id_product);
             if(find) {
-                this.$parent.putJson(`/api/cart/${product.id_product}/${ product.product_name }`, {quantity: 1})
+                this.$parent.putJson(`/api/cart/${product.id_product}`, {quantity: 1})
                     .then(outcome => {
                         if (outcome.result) {
                             find.quantity++;
@@ -25,7 +25,7 @@ Vue.component('cart', {
                     })
             } else {
                 let prod = Object.assign({ quantity: 1 }, product);
-                this.$parent.postJson(`/api/cart/${ product.id_product }/${ product.product_name }`, prod)
+                this.$parent.postJson(`/api/cart/`, prod)
                     .then(outcome => {
                         if(outcome.result) {
                             this.cartItems.push(prod);
@@ -35,14 +35,14 @@ Vue.component('cart', {
         },
         remove(product){
             if (product.quantity > 1) {
-                this.$parent.putJson(`/api/cart/${product.id_product}/${product.product_name}`, {quantity: -1})
+                this.$parent.putJson(`/api/cart/${product.id_product}`, {quantity: -1})
                     .then( data => {
                         if (data.result) {
                             product.quantity--;
                         }
                     })
             } else {
-                this.$parent.delJson(`/api/cart/${product.id_product}/${product.product_name}`, product)
+                this.$parent.deleteJson(`/api/cart/${product.id_product}`, product)
                     .then( data => {
                         if (data.result) {
                             this.cartItems.splice(this.cartItems.indexOf(product), 1);
@@ -56,9 +56,9 @@ Vue.component('cart', {
     template: `
             <div>
                 <button class="btn-cart" type="button" @click="showCart = !showCart">Корзина</button>
-                <div class="cart" v-show="showCart">
-                    <p v-if="cartItems.length == 0" class="empty-bask">Корзина пуста</p>
-                    <p v-else="cartItems.length" class="empty-bask">В корзине есть товары</p>                    
+                <p v-if="cartItems.length == 0" class="empty-bask">Корзина пуста</p>
+                <p v-else="cartItems.length" class="empty-bask">В корзине есть товары</p>  
+                <div class="cart" v-show="showCart">                                      
                     <cart-item v-for="item of cartItems" 
                         :key="item.id_product"
                         :img="item.imgCart"

@@ -5,13 +5,13 @@ Vue.component('error', {
         }
     },
     methods: {
-        text(value){
+        comeText(value){
             this.text = value;
         }
     },
     template: `
         <div class="err" v-if="text">
-            <p><button class="close-btn" @click="text('')">&times;</button>
+            <p><button class="close-btn" @click="comeText('')">&times;</button>
             {{ text }}
             </p>
         </div>`

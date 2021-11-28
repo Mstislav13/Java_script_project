@@ -1,4 +1,4 @@
-// const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
+const API = 'https://raw.githubusercontent.com/GeekBrainsTutorial/online-store-api/master/responses';
 
 const app = new Vue({
     el: "#app",
@@ -11,7 +11,7 @@ const app = new Vue({
         getJson(url){
             return fetch(url)
             .then(outcome => outcome.json())
-            .catch(error => {this.$refs.error.text = error;
+            .catch(error => {this.$refs.error.comeText = error;
             })
         },
         postJson(url, data){
@@ -23,7 +23,7 @@ const app = new Vue({
                 body: JSON.stringify(data)
             })
                 .then(result => result.json())
-                .catch(error => {this.$refs.error.text = error;
+                .catch(error => {this.$refs.error.comeText = error;
                 })
         },
         putJson(url, data){
@@ -35,9 +35,21 @@ const app = new Vue({
                 body: JSON.stringify(data)
             })
                 .then(result => result.json())
-                .catch(error => {this.$refs.error.text = error;
+                .catch(error => {this.$refs.error.comeText = error;
                 })
-        },       
+        },
+        deleteJson(url, data){
+            return fetch(url, {
+                method: 'DELETE',
+                headers: {
+                    "Content-Type": "application/json"
+                },
+                body: JSON.stringify(data)
+            })
+                .then(result => result.json())
+                .catch(error => {this.$refs.error.comeText = error;
+                })
+        },      
     },    
 });
 
