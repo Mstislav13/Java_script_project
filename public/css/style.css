@@ -1,0 +1,176 @@
+* {
+    margin: 0;
+    padding: 0;    
+}
+
+body {
+    font-family: 'Montserrat', sans-serif;
+    background-color: antiquewhite;    
+}
+
+html, body {
+	height: 100%;
+}
+
+.container {
+    display: flex;
+    flex-direction: column;
+    min-height: 100%;    
+}
+
+.content {
+    flex: 1 0 auto;
+}
+
+.tittle {   
+    text-align: center;
+    background-color: burlywood;
+    height: 83px;  
+    font-size: larger;
+}
+
+.top_title {
+    padding-top: 15px;
+}
+
+.main-menu {
+    list-style-type: none;
+    display: flex;
+    justify-content: center;
+    background-color: #9eadd4;
+    height: 40px;
+    font-size: larger;
+}
+
+.li_menu {
+    padding-top: 5px;
+}
+
+.main_li {
+    padding-right: 10px;
+}
+
+.btn-cart {
+    position: absolute;
+    right: 220px;
+    top: 33px;
+    background-color: #8fd992;
+    font-size: 17px;
+    padding: 8px 15px;
+    border-radius: 6px;
+    text-align: center;
+}
+
+.cart {    
+    display: flex;
+    right: 35px;
+    position: absolute;
+    background-color: #d3c380;     
+    top: 77px;    
+}
+
+.btn-search {
+    font-size: 15px;
+    border-radius: 4px;
+    padding: 2px;
+}
+
+.cards {
+    margin-top: 130px;    
+}
+
+.products {
+    display: flex;
+    justify-content: space-evenly; 
+    margin-bottom: 50px;   
+}
+
+.product-item {
+    border: 5px solid #8f9b4c;
+    border-radius: 10px;
+    padding: 5px;
+}
+.cart-item{
+    border: 5px solid #8f9b4c;
+    border-radius: 6px;
+    padding: 5px;    
+    justify-content: center;
+}
+
+.img-prod-item {
+    width: 250px;
+    border-radius: 6px;
+}
+.cart-img-product {
+    width: 80px;
+    border-radius: 6px;
+    margin-left: 27px;
+}
+
+.title-prod-item {
+    font-size: 23px;
+    text-align: center;
+}
+
+.price-prod-item {
+    font-size: 20px;
+    text-align: center;
+}
+
+.buy-btn {
+    background-color: #cbe1cc;
+    font-size: 18px;
+    padding: 3px 95px;
+    border-radius: 7px;
+    text-align: center;
+}
+
+.footer {
+    flex: 0 0 auto;
+	height: 55px;	
+	background-color: #d4c39e;
+	padding-left: 400px;
+	padding-right: 98px;	
+	clear: both;
+}
+
+.delete {
+    padding: 1px 39px;
+    border-radius: 5px;
+}
+
+.invisible{
+    display: none;
+}
+
+.search-form {
+    position: absolute;
+    top: 90px;
+    right: 10px;
+    list-style-type: none;
+}
+
+.search-field {
+    font-size: 20px;
+    border-radius: 5px;
+}
+
+.copyr {
+    font-size: 16px;
+    padding-top: 20px;
+    padding-left: 400px;
+}
+
+.empty-bask {
+    right: 335px;
+    position: fixed;
+    background-color: #cbe1cc;
+    top: 36px;
+    font-size: 20px;
+    padding: 5px;
+    border-radius: 6px;
+}
+
+.err {
+    color: red;
+}
