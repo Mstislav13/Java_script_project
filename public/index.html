@@ -1,0 +1,57 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <meta http-equiv="X-UA-Compatible" content="IE=edge">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Интернет-магазин</title>
+    <link rel="stylesheet" href="css/style.css" type="text/css">
+</head>
+
+<body>
+    <div id="app" class="container">
+        <div class="content">
+            <header>
+                <div class="top">
+                    <div class="tittle">
+                        <h1 class="top_title">{{ title }}</h1>
+                        
+                        <search></search>                        
+
+                    </div>
+                    <div>
+                        <nav class="top_d">
+                            <ul class="main-menu">
+                                <li class="li_menu main_li"><a href="#">Главная</a></li>
+                                <li class="li_menu cont_li"><a href="#">Контакты</a></li>
+                            </ul>
+                        </nav>
+                    </div>
+
+                    <div>
+                        <cart ref="cart"></cart>                     
+                    </div>                    
+
+                </div>
+            </header>
+            <main class="cards">
+                <error ref="error"></error>              
+                <products ref="products"></products>                
+            </main>
+        </div>
+        <div class="footer">
+            <div>
+                <p class="copyr">{{ copyRight }}</p>
+            </div>
+        </div>
+    </div>       
+    <script src="https://cdn.jsdelivr.net/npm/vue/dist/vue.js"></script>
+    <script src="js/productComponent.js"></script>
+    <script src="js/basketComponent.js"></script>
+    <script src="js/searchComponent.js"></script>
+    <script src="js/errorComponent.js"></script>
+    <script src="js/main.js"></script>
+</body>
+
+</html>
